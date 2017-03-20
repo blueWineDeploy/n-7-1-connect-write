@@ -7,35 +7,35 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, db) => {
   }
   console.log('Connected to MongoDB server');
 
+  /*
   db.collection('Todos').findOneAndUpdate({
-    _id: new ObjectID('57bc4b15b3b6a3801d8c47a2')
+    _id: new ObjectID('58ce7c23006adcb2bc77fcfa') // filter
   }, {
     $set: {
-      completed: true
+      completed: true // update with $set operator
     }
   }, {
-    returnOriginal: false
+    returnOriginal: false // option for return the updated document
   }).then((result) => {
-    console.log(result);
+    console.log(result); // Promise if no callback passed
   });
-
-  /*
+  */
 
   db.collection('Users').findOneAndUpdate({
-    _id: new ObjectID('57abbcf4fd13a094e481cf2c')
+    _id: new ObjectID('58ce7e50006adcb2bc77fdab')
   }, {
     $set: {
       name: 'Andrew'
     },
     $inc: {
-      age: 1
+      age: 1 // Increment value of field
     }
   }, {
     returnOriginal: false
   }).then((result) => {
     console.log(result);
   });
-  */
 
   // db.close();
+  
 });
