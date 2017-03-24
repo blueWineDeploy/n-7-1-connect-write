@@ -11,6 +11,7 @@ const port = 3000;
 
 app.use(bodyParser.json());
 
+// Using postman to request body text.
 app.post('/todos', (req, res) => {
   var todo = new Todo({
     text: req.body.text
@@ -33,7 +34,7 @@ app.get('/todos', (req, res) => {
 
 
 app.listen(port, () => {
-    console.log(`Started up at port ${port}`);
+  console.log(`Started up at port ${port}`);
 });
 
 module.exports = {app};
