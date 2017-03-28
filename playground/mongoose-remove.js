@@ -11,6 +11,7 @@ Todo.remove({}).then((result) => {
 /*
 
 Todo.findOneAndRemove
+
 Todo.findByIdAndRemove
 
 Todo.findOneAndRemove({_id: '57c4610dbb35fcbf6fda1154'}).then((todo) => {
