@@ -13,12 +13,12 @@ const todos = [{
   _id: new ObjectID(),
   text: 'Second test todo',
   completed: true,
-  completedAt: 333
+  completedAt: 101010
 }];
 
 beforeEach((done) => {
   Todo.remove({}).then(() => {
-    return Todo.insertMany(todos); // Insert dummy todos
+    return Todo.insertMany(todos); // Insert dummy todos on mongodb
   }).then(() => done());
 });
 
@@ -154,7 +154,7 @@ describe('PATCH /todos/:id', () => {
       .patch(`/todos/${hexId}`)
       .send({
         completed: true,
-        text
+        text // ES6
       })
       .expect(200)
       .expect((res) => {
@@ -173,8 +173,8 @@ describe('PATCH /todos/:id', () => {
       .patch(`/todos/${hexId}`)
       .send({
         completed: false,
-        text
-      })
+        text: text
+      }) // update
       .expect(200)
       .expect((res) => {
         expect(res.body.todo.text).toBe(text);
