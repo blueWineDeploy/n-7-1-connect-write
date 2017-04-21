@@ -26,10 +26,10 @@ const port = process.env.PORT;
 
 app.use(bodyParser.json());
 
-// Using postman to request body text.
+// POST: Using postman to request body text.
 app.post('/todos', (req, res) => {
   var todo = new Todo({
-    text: req.body.text
+    text: req.body.text // Using postman
   });
 
   todo.save().then((doc) => {
@@ -39,6 +39,7 @@ app.post('/todos', (req, res) => {
   });
 });
 
+// GET
 app.get('/todos', (req, res) => {
   Todo.find().then((todos) => {
     res.send({todos});
@@ -65,6 +66,7 @@ app.get('/todos/:id', (req, res) => {
   });
 });
 
+// DELETE
 app.delete('/todos/:id', (req, res) => {
   var id = req.params.id;
 
@@ -83,7 +85,7 @@ app.delete('/todos/:id', (req, res) => {
   });
 });
 
-//Use patch() method when update resource
+// PATCH: use patch() method when update resource
 app.patch('/todos/:id', (req, res) => {
   var id = req.params.id;
   var body = _.pick(req.body, ['text', 'completed']); // Users will update these properties.

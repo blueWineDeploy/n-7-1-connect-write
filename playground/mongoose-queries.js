@@ -9,9 +9,10 @@ var id = '58d5abe9f5e71230045b90eb';
 if (!ObjectID.isValid(id)) {
   console.log('ID is not valid');
 }
+
 /*
 Todo.find({
-  _id: id // we don't need to convert string to ObjectID
+  _id: id // we don't need to convert string to ObjectID object type
 }).then((todos) => {
   console.log('Todos', todos);
 });
@@ -30,6 +31,7 @@ Todo.findById(id).then((todo) => {
   }
   console.log('Todo By Id', todo);
 }).catch((e) => console.log(e));
+
 
 User.findById('58d18c40aeb36d21d0681d6d').then((user) => {
   if (!user) {

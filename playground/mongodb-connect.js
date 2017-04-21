@@ -1,13 +1,12 @@
 
-// Oject destructuring : ES6
-const {MongoClient, ObjectID} = require('mongodb');
+//const MongoClient = require('mongodb').MongoClient;
+const {MongoClient, ObjectID} = require('mongodb'); // ES6
 
 //var obj = new ObjectID();
 //console.log(obj);
 
 /*
-const MongoClient = require('mongodb').MongoClient;
-
+// Oject destructuring : ES6
 var user = {name: 'andrew', age: 25};
 var {name} = user;
 console.log(name);
@@ -22,6 +21,7 @@ MongoClient.connect("mongodb://localhost:27017/TodoApp", function (err, db) {
     console.log('Connected to MongoDB server');
 
     /*
+    // Insert one document.
     db.collection('Todos').insertOne({
         text: 'Something to do',
         completed: false
@@ -30,7 +30,7 @@ MongoClient.connect("mongodb://localhost:27017/TodoApp", function (err, db) {
             return console.log('Unable to insert todo', err);
         }
   
-        console.log(JSON.stringify(result.ops, undefined, 2));
+        console.log(JSON.stringify(result.ops, undefined, 2)); // ops attribute will store all of document you inserted.
     });*/
 
     /*

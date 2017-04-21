@@ -21,6 +21,7 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, db) => {
   });
   */
 
+// Using MongoDB Update operator [$inc, $set]
   db.collection('Users').findOneAndUpdate({
     _id: new ObjectID('58ce7e50006adcb2bc77fdab')
   }, {

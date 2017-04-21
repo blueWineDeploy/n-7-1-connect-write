@@ -22,6 +22,8 @@ beforeEach((done) => {
   }).then(() => done());
 });
 
+
+// POST
 describe('POST /todos', () => {
   it('should create a new todo', (done) => {
     var text = 'Test todo text';
@@ -49,7 +51,7 @@ describe('POST /todos', () => {
   it('should not create todo with invalid body data', (done) => {
     request(app)
       .post('/todos')
-      .send({})
+      .send({}) // invalid data
       .expect(400)
       .end((err, res) => {
         if (err) {
@@ -64,6 +66,7 @@ describe('POST /todos', () => {
   });
 });
 
+// GET All
 describe('GET /todos', () => {
   it('should get all todos', (done) => {
     request(app)
@@ -76,6 +79,7 @@ describe('GET /todos', () => {
   });
 });
 
+// GET with ID
 describe('GET /todos/:id', () => {
   it('should ruturn todo doc', (done) => {
     request(app)
@@ -105,6 +109,7 @@ describe('GET /todos/:id', () => {
   });
 });
 
+// Delete
 describe('DELETE /todos/:id', () => {
   it('should remove a todo', (done) => {
     var hexId = todos[1]._id.toHexString();
