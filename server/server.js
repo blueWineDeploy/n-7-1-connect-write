@@ -9,6 +9,8 @@ if (env === 'development') {
 } else if (env === 'test') {
   process.env.PORT = 3000;
   process.env.MONGODB_URI = 'mongodb://localhost:27017/TodoAppTest';
+} else if (env === 'production') {
+  process.env.MONGODB_URI = 'mongodb://getitdone:120606@ds031867.mlab.com:31867/todoapp'
 }
 */
 
@@ -87,8 +89,10 @@ app.delete('/todos/:id', (req, res) => {
 
 // PATCH: use patch() method when update resource
 app.patch('/todos/:id', (req, res) => {
-  var id = req.params.id;
-  var body = _.pick(req.body, ['text', 'completed']); // Users will update these properties.
+  var id = req.params.id; 
+
+  // Use lodash to pickup the properties
+  var body = _.pick(req.body, ['text', 'completed']); // Users will update these['text', 'completed'] properties.
 
   if (!ObjectID.isValid(id)) {
     return res.status(404).send();
